@@ -1,6 +1,5 @@
 {
-  // "name": "sanity-gridsome-web",
-  "name": "NSB-web",
+  "name": "sanity-gridsome-web",
   "private": true,
   "scripts": {
     "build": "gridsome build",
