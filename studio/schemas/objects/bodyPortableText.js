@@ -50,8 +50,8 @@ export default {
       options: {hotspot: true}
     },
     // Adding a field for youtube embeds
-    {
-      type: 'youtube'
-    }
+    // {
+    //   type: 'youtube'
+    // }
   ]
 }
