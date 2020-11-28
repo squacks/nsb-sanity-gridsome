@@ -109,7 +109,7 @@ export default {
     Pager
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'No Safe Bets'
   }
 }
 </script>
