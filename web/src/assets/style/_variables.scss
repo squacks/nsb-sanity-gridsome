@@ -1,21 +1,53 @@
 // Default variables
+:root {
+	--breakpoint-xs: 0px;
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1320px;
+
+
+// Debug colors
+	--db1: rgba(250, 70, 79);
+	--db2: rgba(255, 59, 48);
+	--db3: rgba(255, 149, 0);
+	--db4: rgba(255, 230, 32);
+	--db5: rgba(4, 222, 113);
+	--db6: rgba(0, 245, 234);
+	--db7: rgba(90, 200, 250);
+	--db8: rgba(32, 148, 250);
+	--db9: rgba(120, 122, 255);
+}
+
+
+
 html {
 	--base-font-size: 20px;
 }
 
 // Light default theme
 body {
- 	--bg-color: #F3F7F9;
- 	--bg-content-color: #fff;
+	// color variables
+	--bg-color: #FEFCF3;
+	--bg-content-color: #fff;
  	--bg-code: #fffbf3;
  	--body-color: #444;
- 	--title-color: #111;
- 	--link-color: #6b17e6;
- 	--border-color:  rgba(0,0,0,.1);;
-  --space: 3.5rem;
+	--title-color: #B69E60;
+	--link-color: #575E50;
+	--fixed-color: #222;
+	--accent-primary: #222722;
+	--accent-secondary: #6785A2;
+	--border-color:  rgba(5, 5, 5, 0.1);
+	--info-color: #6484F3;
+
+	// Space and size variables
+	--space: 3.5rem;
   --content-width: 860px;
-  --header-height: 80px;
-  --radius: 5px;
+	--header-height: 80px;
+	--footer-height: 200px;
+	--radius-sm: 3px;
+	--radius: 5px;
+
 }
 
 // Make  things smaller for mobile
@@ -32,11 +64,17 @@ body {
 
 // Override variables for Dark theme
 body[data-theme="dark"] {
- 	--bg-color: #0D2538;
- 	--bg-content-color: #0f2d44;
+	 --bg-color: #0D0C18;
+	 --bg-color: #000305;
+	 --bg-content-color: #0b1028;
+	 --bg-content-color: #020F17;
  	--bg-code: rgba(0,0,0,.3);
  	--border-color:  rgba(255,255,255,.1);;
- 	--body-color: #ced8de;
- 	--title-color: #fff;
- 	--link-color: #af9cef;
+ 	--body-color: #769CA4;
+	--title-color: #BBA86E;
+	--link-color: #EEF9C7;
+	--fixed-color: var(--title-color);
+	--accent-primary: var(--title-color);
+	--accent-secondary: #6785A2;
+	--info-color: #5169B3;
 }

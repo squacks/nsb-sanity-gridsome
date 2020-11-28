@@ -1,32 +1,74 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400, 600');
 
+@font-face {
+  font-family: 'Konsole VF';
+  src: url(../../assets/fonts/Konsole0.5GX.woff2) format('woff2-varitions'),
+    url(../../assets/fonts/Konsole0.5GX.woff2) format('woff2');
+  //       url(../../assets/fonts/Konsole0.5-Bold.woff) format('woff');
+  // font-weight: normal;
+  // font-style: normal;
+}
+@font-face {
+  font-family: 'Konsole';
+  src: url(../../assets/fonts/Konsole0.5-Bold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Konsole';
+  src: url(../../assets/fonts/Konsole0.5-ExpandedBold.woff2) format('woff2');
+  font-weight: 700;
+}
+
+
+// Variable font params for Konsole
+// Weight 100 - 800
+// Width 30 - 90
+
 html {
   font-size: var(--base-font-size);
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  line-height: 1.45;
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Konsole', sans-serif;
+  // font-variation-settings: 'wght' 800, 'wdth' 90;
+  // font-weight: 800;
+  // line-height: 1.45;
 }
 
+// MAGIC BOOKMARK: https://www.zeichenschatz.net/typografie/implementing-a-variable-font-with-fallback-web-fonts.html
+// Variable font TTF to WOFF2 variable converter article: https://henry.codes/writing/how-to-convert-variable-ttf-font-files-to-woff2/
+@supports (font-variation-settings: normal) {
+  body {
+   font-family: 'Konsole VF', sans-serif;
+  }
+ }
+
 p {
-	margin-bottom: 1.25em;
+  margin-bottom: 1.25em;
+  font-family: 'Poppins', sans-serif;
+  // font-family: 'Konsole VF', sans-serif;
+  font-variation-settings: "wght" 400, "wdth" 60;
 }
 
 h1, h2, h3, h4, h5 {
   transition: color .6s;
   color: var(--title-color);
   margin: 2.75rem 0 1rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Konsole', sans-serif;
+  // font-variation-settings: 'wght' 800, 'wdth' 90;
+  // font-weight: 600;
+  
   line-height: 1.15;
 }
-
 
 h1 {
   margin-top: 0;
   font-size: 1.802em;
+  font-family: 'Konsole VF', sans-serif;
+  font-variation-settings: 'wght' 800, 'wdth' 90;
+  // font-weight: 800;
+  // font-stretch: ultra-expanded;
 }
 
 h2 {font-size: 1.602em;}

@@ -48,6 +48,10 @@ export default {
     {
       type: 'mainImage',
       options: {hotspot: true}
+    },
+    // Adding a field for youtube embeds
+    {
+      type: 'youtube'
     }
   ]
 }

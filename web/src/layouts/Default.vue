@@ -1,90 +1,149 @@
 <template>
-  <div id="app">
-    <header class="header">
-      <div class="header__left">
-        <header-logo v-if="showLogo" />
-      </div>
+  <div id="app" class="moat">
+  <the-header />
 
-      <div class="header__right">
-        <toggle-theme />
-      </div>
-    </header>
 
+
+  <div class="moat-content">
+    <aside class="sidebar sidebar__left">
+      <!-- <SiderLeft /> -->
+      Left Sidebar Content
+    </aside>
+
+    <Sidebar>
+      <ul class="sidebar-panel-nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </Sidebar>
+
+  
     <main class="main">
       <slot />
     </main>
 
-    <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
-      <span class="footer__links">
-        Powered by
-        <a href="//gridsome.org">Gridsome</a> &amp;
-        <a href="//www.sanity.io">Sanity.io</a>
-      </span>
-    </footer>
+    <aside class="sidebar sidebar__right">
+      <!-- <SiderRight /> -->
+      <sidebar-right v-if="showRightsidebar" />
+      <!-- <slot name="right-sidebar" /> -->
+    </aside>
+
+  </div>
+
+
+
+  <the-footer />
+  <menu-fixed />
   </div>
 </template>
 
 <script>
+import TheHeader from '~/components/TheHeader'
+import TheFooter from '~/components/TheFooter'
+import MenuFixed from '~/components/MenuFixed'
 import HeaderLogo from '~/components/HeaderLogo'
-import ToggleTheme from '~/components/ToggleTheme'
+import FeatureMain from '~/components/FeatureMain'
+import SiderLeft from '~/components/SiderLeft'
+import SidebarRight from '~/components/SidebarRight.vue'
+import Sidebar from '~/components/Sidebar.vue'
 
 export default {
   props: {
     showLogo: {
       type: Boolean,
       default: true
+    },
+    showRightsidebar: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
+    TheHeader,
+    TheFooter,
+    MenuFixed,
     HeaderLogo,
-    ToggleTheme
+    FeatureMain,
+    SiderLeft,
+    SidebarRight,
+    Sidebar
   }
 }
 </script>
 
 <style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top: 0;
-  z-index: 10;
+// MOAT is the  name of my page wrapper
+.moat {
+  // height: 60vh;
 
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
+  &-content {
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(0px, 220px) minmax(400px, 876px) minmax(0px, 220px);
+    // grid-template-rows: repeat(15, 200px);
+    max-width: var(--breakpoint-xl);
+    margin: 0 auto;
+    // grid-gap: 1em;
   }
+}
 
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
+// Sidebar left and right styling
+.sidebar {
+  &__left {
+    border: 2px solid var(--db8);
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    // width: 220px;
+  }
+  &__right {
+    // border: 2px solid var(--db1);
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+    // width: 220px;
   }
 }
 
 .main {
-  margin: 0 auto;
+  // margin: 0 auto;
+  // border: 2px solid purple;
+  grid-column: 2 / 3;
+  grid-row-start: 3;
+  margin-top: var(--space);
   padding: 1.5vw 15px 0;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--space) / 2);
-  text-align: center;
-  font-size: 0.8em;
-
-  > span {
-    margin: 0 0.35em;
+@media screen and (max-width: 1020px) {
+  .sidebar__left {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    min-height: 200px;
   }
 
-  a {
-    color: currentColor;
+  .main {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .sidebar__left {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+  }
+  .main {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+  }
+  .feature-one {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+  .sidebar__right {
+    min-height: 200px;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
   }
 }
 </style>
