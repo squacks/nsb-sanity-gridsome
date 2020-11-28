@@ -186,7 +186,7 @@ nav ul li:hover > ul {
     .sub-menu {
       // background-color: pink;
       // display: block;
-      margin-left: -5.52rem; // ULTRA-HACKY
+      margin-left: -4.8rem; // ULTRA-HACKY
       // margin-right: auto!important;
       // justify-content: flex-end;
       li {
