@@ -46,7 +46,7 @@
       dataset
     }
   }
-  posts: allSanityPost(sortBy: "publishedAt") {
+  posts: allSanityPost(sortBy: "publishedAt", perPage: 10) {
     edges {
       node {
         id

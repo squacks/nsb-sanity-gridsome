@@ -47,8 +47,8 @@
   grid-column: 1 / 7;
   grid-row: 2 / 3;
   width: 100%;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  // border-top: 1px solid #ddd;
+  // border-bottom: 1px solid #ddd;
   // margin:2em;
   z-index: 1;
 }
